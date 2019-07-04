@@ -1,0 +1,14 @@
+body {
+    background-color: brown;
+}
+
+main {
+    display: block;
+    margin: 20% auto;
+    width: 25%;
+}
+
+time {
+    font-size: 16rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
