@@ -1,25 +1,32 @@
 class Time {
 
-    
-
-    constructor(time) {
-        this._time = time;
+    constructor(timeInSeconds) {
+        this._time = timeInSeconds;
     }
 
     getMinutes() {
-        return parseInt(_time.split(':')[0], 10);
+        return Math.floor(this._time / Time.SEKUNDEN_PRO_MINUTE);
     }
 
     getSeconds() {
-        return parseInt(_time.split(':')[1], 10);
+        return this._time % Time.SEKUNDEN_PRO_MINUTE;
     }
 
     getMinutesInSeconds() {
-        return this.getMinutes() * SEKEUNDEN_PRO_MINUTE;
+        return this.getMinutes() * Time.SEKUNDEN_PRO_MINUTE;
     }
 
     getTotalSeconds() {
         return this.getMinutesInSeconds() + this.getSeconds();
     }
 
+    getTimeAndDecreaseBy1Second() {
+        const fuehrendeNull = (this.getSeconds() < 10 ? '0' : '');
+        const string = this.getMinutes() + ':' + fuehrendeNull + this.getSeconds();
+        this._time = this._time - 1;
+        return string;
+    }
+
 };
+
+Time.SEKUNDEN_PRO_MINUTE = 60;
